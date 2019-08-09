@@ -1,6 +1,7 @@
 import React,{Component,Fragment} from 'react'
+import PropTypes  from 'prop-types'
 
-export default class XiaojiejieItem  extends Component { //cc
+ class XiaojiejieItem  extends Component { //cc
     constructor(){
         super()
         this.handleClick = this.handleClick.bind(this)
@@ -17,4 +18,18 @@ export default class XiaojiejieItem  extends Component { //cc
 
         );
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.content!==this.props.content){
+            return false
+        }else{
+            return true
+        }
+
+    }
+ }
+XiaojiejieItem.propTypes={
+    content:PropTypes.string,
+    deleteItem:PropTypes.func,
+    index:PropTypes.number
 }
+export default XiaojiejieItem
